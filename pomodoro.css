@@ -1,49 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background: linear-gradient(#d46666, #e47a7a, #d45f5f);
+  background-image: url(https://www.teahub.io/photos/full/259-2597321_high-resolution-tomatoes-on-a-vine.png);
+  margin: 2em;
 }
-.tempo1 {
-  background-color: #8770b3;
-  padding: 20px 70px 70px 70px;
-}
-img {
-  width: 250px;
-  height: 250px;
-}
-h1 {
-  font-size: 40px;
-}
-.reset {
-  margin: 20px 10px 10px 50px;
-}
-p {
+
+header h1 {
+  font-weight: bold;
+  font-size: 3em;
   text-align: center;
-  font-size: 40px;
+  margin: 1.3em 0em 0em 0em;
+  width: 26%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #f04e48;
 }
-h2 {
-  text-align: center;
-  font-size: 30px;
-}
-.container {
+
+main {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding: 2em 0em 7em;
+  margin: 0 auto;
+  background-color: #f04e48;
+  width: 26%;
 }
-.container1 {
+
+.focus {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
 }
-.arrumaP {
-  margin: 30px 30px 30px 30px;
+
+p {
+  font-size: 3.5em;
 }
-.tomate1 {
-  height: 400px;
-  width: 400px;
+
+button {
+  margin: 3em 1em 3em 1em;
+  padding: 1em 1.5em 1em 1.5em;
+  border-radius: 1em;
+  border: none;
+  background-color: #8859c2;
+  color: white;
+  font-weight: bold;
+  opacity: 1;
+  font-size: 1em;
+  transition: transform 0.2s;
 }
-.tomate2 {
-  height: 400px;
-  width: 400px;
-}
-.button {
-  display: flex;
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }

@@ -1,73 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="shortcut icon" href="#"/>
-    <meta name="Pomodoro Method">
-    <title>Pomodoro Clock</title>
-</head>
-<body>
-<link rel="stylesheet" href="pomodoro.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <link rel="stylesheet" href="pomodoro.css" />
+  <body>
+    <header>
+      <h1>Técnica Pomodoro</h1>
+    </header>
 
-    <div class="container">
-        <div class="flex-item">
-            <h1>Técnica Pomodoro</h1>
-        </div>
-    </div>
-    <div class="container1">
-        <div>
-            <img src="tomate.png" alt="tab" class="tomate1">
-        </div>
-        <div class="tempo1">
-            <h2>Pomodoro</h2>
+    <main>
+      <div class="focus">
+        <p id="minutes-focus">25</p>
+        <p>:</p>
+        <p id="seconds-focus">00</p>
+      </div>
 
-            <div class="arrumaP">
-            <p style="display: inline; margin: 0px 0px 0px 20px;" id="minutes">25</p>
+      <div class="focus">
+        <button id="up-focus">Aumentar</button>
+        <button id="down-focus">Diminuir</button>
+      </div>
 
-            <p style="display: inline; ">:</p>
+      <div class="focus">
+        <p id="minutes-break">5</p>
+        <p>:</p>
+        <p id="seconds-break">00</p>
+      </div>
 
+      <div class="focus">
+        <button id="up-break">Aumentar</button>
+        <button id="down-break">Diminuir</button>
+      </div>
 
-            <p id="seconds" style="display: inline;">00</p>
-            </div>
-            <div class="button">
-            <button id="aumentar" style="font-size: 15px; margin: 10px 10px 10px 10px;">Aumentar</button>
-            <button id="diminuir" style="font-size: 15px; margin: 10px 10px 10px 10px;">Diminuir</button>
-            </div>
-
-            <div class="button">
-                <button style="font-size: 20px; margin: 10px 10px 10px 25px;" id="start">Start</button>
-
-                <button style="font-size: 20px; margin: 10px 10px 10px 10px;" id="Stop">Stop</button>
-            </div>
-        
-            <h2>Intervalo</h2>
-        
-
-            <div class="arrumaP">
-            <p id="minutes1" style="display: inline; margin: 0px 0px 0px 20px;">5</p>
-            <p style="display: inline;">:</p>
-            <p id="seconds1" style="display: inline;">00</p>
-            
-            </div>
-        
-            <button id="aumentar1" style="font-size: 15px; margin: 10px 10px 10px 10px;">Aumentar</button>
-            <button id="diminuir1" style="font-size: 15px; margin: 0px 10px 0px 10px;">Diminuir</button>
-
-            <div class="reset">
-            <button id="reset" type="reset" style="font-size: 20px; display: flex;  margin: 0px 0px 0px 15px;">Reset</button>
-
-            
-            </div>
-        </div>
-        <img src="tomate.png" alt="mais um tomate" class="tomate2">
-    </div>
-    </div>
-
-
-    <div>
-        
-        </div>
-
-
-<script src="script.js"></script>
-</body>
+      <div class="focus">
+        <button id="start">Começar</button>
+        <button id="pause">Pausar</button>
+        <button id="reset">Reiniciar</button>
+      </div>
+    </main>
+  </body>
 </html>
