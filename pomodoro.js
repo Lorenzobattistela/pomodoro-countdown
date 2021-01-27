@@ -10,6 +10,7 @@ var aumentar = document.querySelector("#up-break").addEventListener("click", aum
 
 var diminuir = document.querySelector("#down-break").addEventListener("click", diminuir1);
 
+var pausar = document.querySelector("#pause").addEventListener("click", pause)
 
 
 var defaultValue = document.getElementById("minutes-focus").innerText;
@@ -57,7 +58,7 @@ function grab(){
         }
 
         seconds.innerText = secondsN.toString();
-        minutes.innerText = minuetsM.toString();
+        minutes.innerText = minutesN.toString();
     }
 }
 
@@ -97,7 +98,7 @@ function resetar(){
     clearInterval(idvar);
     clearInterval(idvar1);
     document.getElementById("minutes-focus").innerText = defaultValue;
-    document.getElementById("seconds-focus").innerText = defaultValue2;
+    document.getElementById("seconds-focus").innerText = defaultValue1;
     document.getElementById("minutes-break").innerText = defaultValue2;
     document.getElementById("seconds-break").innerText = defaultValue3;
 }
