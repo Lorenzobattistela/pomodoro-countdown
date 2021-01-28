@@ -73,7 +73,7 @@ function grab1(){
         var secondsN = Number(seconds.innerText);
         var minutesN = Number(minutes.innerText);
 
-        if(minutesN == 0 && secondsN)
+        if(minutesN == 0 && secondsN == 0)
         {
             clearInterval(idvar1);
             alert("Reinicie o tempo");
@@ -112,6 +112,7 @@ function aumentar(){
     var value = document.getElementById("minutes-focus").innerText;
     value = Number(value);
     value = value + 1;
+    defaultValue = value;
     document.getElementById("minutes-focus").innerText = value;
 }
 
@@ -121,6 +122,7 @@ function diminuir() {
     value = value - 1;
     if(value > 0)
     {
+        defaultValue = value;
         document.getElementById("minutes-focus").innerText = value;
     }
 }
@@ -129,15 +131,17 @@ function aumentar1(){
     var value = document.getElementById("minutes-break").innerText;
     value = Number(value);
     value = value + 1;
+    defaultValue2 = value;
     document.getElementById("minutes-break").innerText = value;
 }
 
 function diminuir1() {
     var value = document.getElementById("minutes-break").innerText;
     value = Number(value);
-    value = value - 1;
+    value = value - 1; 
     if(value > 0)
     {
+        defaultValue2 = value;
         document.getElementById("minutes-break").innerText = value;
     }
 }

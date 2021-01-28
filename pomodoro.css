@@ -9,24 +9,23 @@ body {
   margin: 2em;
 }
 
-header h1 {
+h1 {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
   margin: 1.3em 0em 0em 0em;
-  width: 26%;
-  margin: 0 auto;
   padding: 1em;
   background-color: #f04e48;
 }
 
 main {
+  width: min(90vw, 800px);
+  margin: auto;
   display: flex;
   flex-direction: column;
   padding: 2em 0em 7em;
-  margin: 0 auto;
   background-color: #f04e48;
-  width: 26%;
+  flex-wrap: wrap;
 }
 
 .focus {
