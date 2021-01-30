@@ -1,56 +1,33 @@
-var start = document.querySelector("#start").addEventListener("click" , grab);
+let defaultMinutesFocusValue = document.getElementById("minutes-focus").innerText;
+let defaultSecondsFocusValue = document.getElementById("seconds-focus").innerText;
+let defaultMinutesBreakValue = document.getElementById("minutes-break").innerText;
+let defaultSecondsBreakValue = document.getElementById("seconds-break").innerText;
 
-var reset = document.querySelector("#reset").addEventListener("click", resetar);
-
-var aumentar = document.querySelector("#up-focus").addEventListener("click", aumentar);
-
-var diminuir = document.querySelector("#down-focus").addEventListener("click", diminuir);
-
-var aumentar = document.querySelector("#up-break").addEventListener("click", aumentar1);
-
-var diminuir = document.querySelector("#down-break").addEventListener("click", diminuir1);
-
-var pausar = document.querySelector("#pause").addEventListener("click", pause)
-
-
-var defaultValue = document.getElementById("minutes-focus").innerText;
-var defaultValue1 = document.getElementById("seconds-focus").innerText;
-var defaultValue2 = document.getElementById("minutes-break").innerText;
-var defaultValue3 = document.getElementById("seconds-break").innerText;
-
-var idvar;
-var idvar1;
+var focusInterval;
+var brearkInterval;
 var counter = 0;
-var storeM;
-var storeS;
 var interval;
 
-function grab(){
+function startPomodoro() {
     var minutes = document.getElementById("minutes-focus");
     var seconds = document.getElementById("seconds-focus");
-    var storeM = minutes.innerText;
-    var storeS = seconds.innerText;
-    idvar = setInterval(countingTime, 1000);
 
-    function countingTime(){
+    function countingTime() {
         var secondsN = Number(seconds.innerText);
         var minutesN = Number(minutes.innerText);
 
-        if(minutesN == 0 && secondsN == 0)
-        {
+        if (minutesN == 0 && secondsN == 0) {
             counter = counter + 1;
 
-            if(counter == 4)
-            {
+            if (counter == 4) {
                 document.getElementById("minutes").innerText = "10";
             }
-            clearInterval(idvar);
-            grab1();
+            clearInterval(focusInterval);
+            breakTimeCounting();
         }
 
-        else{
-            if(secondsN == 00)
-            {
+        else {
+            if (secondsN == 00) {
                 secondsN = 60;
                 minutesN = minutesN - 1;
             }
@@ -60,88 +37,92 @@ function grab(){
         seconds.innerText = secondsN.toString();
         minutes.innerText = minutesN.toString();
     }
+    focusInterval = setInterval(countingTime, 1000);
 }
 
-function grab1(){
+function breakTimeCounting() {
     var minutes = document.getElementById("minutes-break");
     var seconds = document.getElementById("seconds-break");
-    var storeM = minutes.innerText;
-    var storeS = seconds.innerText;
-    idvar1 = setInterval(countingTime, 1000);
+    brearkInterval = setInterval(countingTime, 1000);
 
-    function countingTime(){
+    function countingTime() {
         var secondsN = Number(seconds.innerText);
         var minutesN = Number(minutes.innerText);
 
-        if(minutesN == 0 && secondsN == 0)
-        {
-            clearInterval(idvar1);
-            alert("Reinicie o tempo");
+        if (minutesN == 0 && secondsN == 0) {
+            resetar()
+            startPomodoro()
         }
 
-        else{
-            if(secondsN == 0)
-            {
+        else {
+            if (secondsN == 0) {
                 secondsN = 60;
                 minutesN = minutesN - 1;
             }
             secondsN--;
+            seconds.innerText = secondsN.toString();
+            minutes.innerText = minutesN.toString();
         }
 
-        seconds.innerText = secondsN.toString();
-        minutes.innerText = minuetsM.toString();
     }
 }
 
 
-function resetar(){
-    clearInterval(idvar);
-    clearInterval(idvar1);
-    document.getElementById("minutes-focus").innerText = defaultValue;
-    document.getElementById("seconds-focus").innerText = defaultValue1;
-    document.getElementById("minutes-break").innerText = defaultValue2;
-    document.getElementById("seconds-break").innerText = defaultValue3;
+function resetar() {
+    clearInterval(focusInterval);
+    clearInterval(brearkInterval);
+
+    document.getElementById("minutes-break").innerText = defaultMinutesBreakValue;
+    document.getElementById("seconds-break").innerText = defaultSecondsBreakValue;
+    document.getElementById("minutes-focus").innerText = defaultMinutesFocusValue;
+    document.getElementById("seconds-focus").innerText = defaultSecondsFocusValue;
 }
 
-function pause(){
-    clearInterval(idvar)
-    clearInterval(idvar1)
+function pause() {
+    clearInterval(focusInterval)
+    clearInterval(brearkInterval)
 }
 
-function aumentar(){
+function aumentarFocus() {
     var value = document.getElementById("minutes-focus").innerText;
     value = Number(value);
     value = value + 1;
-    defaultValue = value;
+    defaultMinutesFocusValue = value;
     document.getElementById("minutes-focus").innerText = value;
 }
 
-function diminuir() {
+function diminuirFocus() {
     var value = document.getElementById("minutes-focus").innerText;
     value = Number(value);
     value = value - 1;
-    if(value > 0)
-    {
-        defaultValue = value;
+    if (value > 0) {
+        defaultMinutesFocusValue = value;
         document.getElementById("minutes-focus").innerText = value;
     }
 }
 
-function aumentar1(){
+function aumentarBreak() {
     var value = document.getElementById("minutes-break").innerText;
     value = Number(value);
     value = value + 1;
-    defaultValue2 = value;
+    defaultMinutesBreakValue = value;
     document.getElementById("minutes-break").innerText = value;
 }
 
-function diminuir1() {
+function diminuirBreak() {
     var value = document.getElementById("minutes-break").innerText;
     value = Number(value);
-    value = value - 1; 
-    if(value > 0)
-    {
-        defaultValue2 = value;
+    value = value - 1;
+    if (value > 0) {
+        defaultMinutesBreakValue = value;
         document.getElementById("minutes-break").innerText = value;
     }
 }
+
+document.querySelector("#start").addEventListener("click", startPomodoro);
+document.querySelector("#reset").addEventListener("click", resetar);
+document.querySelector("#up-focus").addEventListener("click", aumentarFocus);
+document.querySelector("#down-focus").addEventListener("click", diminuirFocus);
+document.querySelector("#up-break").addEventListener("click", aumentarBreak);
+document.querySelector("#down-break").addEventListener("click", diminuirBreak);
+document.querySelector("#pause").addEventListener("click", pause)
