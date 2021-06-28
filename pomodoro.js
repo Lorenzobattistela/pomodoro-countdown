@@ -5,6 +5,7 @@ let defaultSecondsBreakValue = document.getElementById("seconds-break").innerTex
 
 var focusInterval;
 var breakInterval;
+
 var counter = 0;
 var interval;
 
@@ -72,6 +73,7 @@ function breakTimeCounting() {
 function resetar() {
     clearInterval(focusInterval);
     clearInterval(breakInterval);
+
 
     document.getElementById("minutes-break").innerText = defaultMinutesBreakValue;
     document.getElementById("seconds-break").innerText = defaultSecondsBreakValue;
